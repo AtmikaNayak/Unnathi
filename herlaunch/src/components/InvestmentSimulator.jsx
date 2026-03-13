@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import {
   LineChart,
   Line,
@@ -40,6 +40,11 @@ export default function InvestmentSimulator() {
       <div className="flex gap-4 mb-4">
         <div>
           <label className="block text-sm">Monthly Investment (₹)</label>
+          <div className="flex gap-2 mb-3">
+            <button onClick={() => setMonthly(500)} className="px-3 py-1 bg-gray-200 rounded">₹500</button>
+            <button onClick={() => setMonthly(1000)} className="px-3 py-1 bg-gray-200 rounded">₹1000</button>
+            <button onClick={() => setMonthly(5000)} className="px-3 py-1 bg-gray-200 rounded">₹5000</button>
+          </div>
           <input
             type="number"
             value={monthly}
@@ -72,6 +77,10 @@ export default function InvestmentSimulator() {
           <Line type="monotone" dataKey="value" stroke="#82ca9d" name="Estimated Value" />
         </LineChart>
       </ResponsiveContainer>
+
+      <p className="text-sm text-gray-600 mt-4">
+        Example: Investing ₹2000/month for 20 years at 12% can grow to ~₹20+ lakhs.
+      </p>
     </div>
   );
 }
