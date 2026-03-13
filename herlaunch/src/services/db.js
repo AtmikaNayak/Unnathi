@@ -36,40 +36,21 @@ export const getScholarships = async () => {
 }
 
 export const getFilteredScholarships = async (state = '', category = '', course = '') => {
-  try {
-    const snapshot = await getDocs(collection(db, 'scholarships'))
-    let data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
-    if (data.length === 0) data = DUMMY_SCHOLARSHIPS
-    return data.filter(s => {
-      const matchState = !state || s.state === state || s.state === 'All India'
-      const matchCategory = !category || s.category === category || s.category === 'All'
-      const matchCourse = !course || s.course === course || s.course === 'All'
-      return matchState && matchCategory && matchCourse
-    })
-  } catch (err) {
-    console.error("Firebase error, using dummy data:", err)
-    return DUMMY_SCHOLARSHIPS
-  }
+
+  let data = DUMMY_SCHOLARSHIPS
+
+  return data.filter(s => {
+    const matchState = !state || s.state === state || s.state === 'All India'
+    const matchCategory = !category || s.category === category || s.category === 'All'
+    const matchCourse = !course || s.course === course || s.course === 'All'
+    return matchState && matchCategory && matchCourse
+  })
 }
 
 export const getSchemes = async () => {
-  try {
-    const snapshot = await getDocs(collection(db, 'schemes'))
-    const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
-    return data.length > 0 ? data : DUMMY_SCHEMES
-  } catch (err) {
-    console.error("Firebase error, using dummy data:", err)
-    return DUMMY_SCHEMES
-  }
+  return DUMMY_SCHEMES
 }
 
 export const getInternships = async () => {
-  try {
-    const snapshot = await getDocs(collection(db, 'internships'))
-    const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
-    return data.length > 0 ? data : DUMMY_INTERNSHIPS
-  } catch (err) {
-    console.error("Firebase error, using dummy data:", err)
-    return DUMMY_INTERNSHIPS
-  }
+  return DUMMY_INTERNSHIPS
 }

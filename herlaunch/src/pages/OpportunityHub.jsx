@@ -6,28 +6,30 @@ import {
 } from "../services/db";
 
 const isClosingSoon = (deadline) => {
-  const today = new Date()
+  const today = new Date();
+  const end = new Date(Date.parse(deadline));
 
-  // force proper parsing
-  const end = new Date(Date.parse(deadline))
+  if (isNaN(end)) return false;
 
-  if (isNaN(end)) return false
-
-  const diffDays = (end - today) / (1000 * 60 * 60 * 24)
-
-  return diffDays <= 7 && diffDays >= 0
-}
+  const diffDays = (end - today) / (1000 * 60 * 60 * 24);
+  return diffDays <= 7 && diffDays >= 0;
+};
 
 export default function OpportunityHub() {
 
   const [tab, setTab] = useState("scholarships");
+
   const [scholarships, setScholarships] = useState([]);
   const [schemes, setSchemes] = useState([]);
   const [internships, setInternships] = useState([]);
+
   const [loading, setLoading] = useState(false);
 
-  const [bookmarks, setBookmarks] = useState([])
-  const [search, setSearch] = useState("")
+  const [search, setSearch] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const [bookmarks, setBookmarks] = useState([]);
+
   const [state, setState] = useState("");
   const [category, setCategory] = useState("");
   const [course, setCourse] = useState("");
@@ -39,19 +41,23 @@ export default function OpportunityHub() {
   const loadData = async () => {
     setLoading(true);
 
-    if (tab === "scholarships") {
-      const data = await getFilteredScholarships(state, category, course);
-      setScholarships(data);
-    }
+    try {
+      if (tab === "scholarships") {
+        const data = await getFilteredScholarships(state, category, course);
+        setScholarships(data || []);
+      }
 
-    if (tab === "schemes") {
-      const data = await getSchemes();
-      setSchemes(data);
-    }
+      if (tab === "schemes") {
+        const data = await getSchemes();
+        setSchemes(data || []);
+      }
 
-    if (tab === "internships") {
-      const data = await getInternships();
-      setInternships(data);
+      if (tab === "internships") {
+        const data = await getInternships();
+        setInternships(data || []);
+      }
+    } catch (err) {
+      console.error("Error loading data:", err);
     }
 
     setLoading(false);
@@ -60,40 +66,51 @@ export default function OpportunityHub() {
   const handleFilter = async () => {
     setLoading(true);
     const data = await getFilteredScholarships(state, category, course);
-    setScholarships(data);
+    setScholarships(data || []);
     setLoading(false);
+  };
+
+  const handleSearch = () => {
+    setSearchTerm(search);
   };
 
   const toggleBookmark = (id) => {
     if (bookmarks.includes(id)) {
-      setBookmarks(bookmarks.filter((b) => b !== id))
+      setBookmarks(bookmarks.filter((b) => b !== id));
     } else {
-      setBookmarks([...bookmarks, id])
+      setBookmarks([...bookmarks, id]);
     }
-  }
+  };
 
   return (
     <main className="max-w-6xl mx-auto px-6 py-12 bg-gray-50 min-h-screen">
 
-      <h1 className="text-4xl font-bold mb-2">
-        Opportunity Hub
-      </h1>
+      <h1 className="text-4xl font-bold mb-2">Opportunity Hub</h1>
 
-      <p className="text-gray-500 mb-8">
+      <p className="text-gray-500 mb-6">
         Find scholarships, government schemes, and internships made for you.
       </p>
 
-      <input
+      {/* SEARCH BAR */}
+      <div className="flex gap-3 mb-6">
+        <input
           type="text"
-          placeholder="Search scholarships..."
+          placeholder="Search opportunities..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="border border-gray-200 rounded-lg px-4 py-2 mb-6 w-full focus:outline-none focus:ring-2 focus:ring-purple-500"
+          className="border border-gray-200 rounded-lg px-4 py-2 w-full"
         />
+
+        <button
+          onClick={handleSearch}
+          className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700"
+        >
+          Search
+        </button>
+      </div>
 
       {/* Tabs */}
       <div className="flex gap-6 border-b mb-8">
-
         {["scholarships", "schemes", "internships"].map((t) => (
           <button
             key={t}
@@ -107,13 +124,11 @@ export default function OpportunityHub() {
             {t}
           </button>
         ))}
-
       </div>
 
-      {/* Filters */}
+      {/* FILTERS */}
       {tab === "scholarships" && (
-
-        <div className="bg-gray-50 p-5 rounded-lg mb-8 flex flex-wrap gap-4">
+        <div className="bg-white p-4 rounded-lg shadow mb-8 flex flex-wrap gap-4">
 
           <select
             value={state}
@@ -150,7 +165,7 @@ export default function OpportunityHub() {
 
           <button
             onClick={handleFilter}
-            className="bg-purple-600 text-white px-5 py-2 rounded"
+            className="bg-purple-600 text-white px-4 py-2 rounded"
           >
             Filter
           </button>
@@ -158,154 +173,131 @@ export default function OpportunityHub() {
         </div>
       )}
 
-      {/* Loading */}
+      {/* LOADING */}
       {loading && (
-        <div className="flex justify-center items-center py-12">
+        <div className="flex justify-center py-12">
           <div className="w-10 h-10 border-4 border-purple-200 border-t-purple-600 rounded-full animate-spin"></div>
         </div>
       )}
-
-      {/* Content */}
 
       {!loading && (
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
+          {/* SCHOLARSHIPS */}
           {tab === "scholarships" &&
             scholarships
               .filter((s) =>
-                s.name.toLowerCase().includes(search.toLowerCase())
+                searchTerm === "" ||
+                s.name.toLowerCase().includes(searchTerm.toLowerCase())
               )
               .map((s) => (
 
-              <div
-                key={s.id}
-                className="border border-purple-100 rounded-xl p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200 bg-white"
-              >
+              <div key={s.id} className="border rounded-xl p-5 shadow hover:shadow-lg bg-white">
 
-                <div className="flex justify-between items-start mb-2">
+                <div className="flex justify-between mb-2">
 
-                <div>
-                  <h3 className="font-semibold text-lg text-gray-800">
-                    {s.name}
-                  </h3>
+                  <div>
+                    <h3 className="font-semibold text-lg">{s.name}</h3>
 
-                  <span className="text-xs font-medium bg-purple-100 text-purple-700 px-3 py-1 rounded-full">
-                    {s.category}
-                  </span>
+                    <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">
+                      {s.category}
+                    </span>
+                  </div>
+
+                  <button onClick={() => toggleBookmark(s.id)}>
+                    {bookmarks.includes(s.id) ? "⭐" : "☆"}
+                  </button>
+
                 </div>
 
-                <button
-                  onClick={() => toggleBookmark(s.id)}
-                  className="text-xl"
-                >
-                  {bookmarks.includes(s.id) ? "⭐" : "☆"}
-                </button>
+                <p className="text-sm text-gray-500">{s.provider}</p>
 
-              </div>
+                <p className="text-purple-700 font-bold text-lg">{s.amount}</p>
 
-                <p className="text-gray-500 text-sm mb-1">
-                  {s.provider}
-                </p>
-
-                <p className="text-purple-700 font-bold text-xl mb-1">
-                  {s.amount}
-                </p>
-
-                <p className="text-sm text-gray-400 mb-1">
+                <p className="text-xs text-gray-400 mb-2">
                   Deadline: {s.deadline}
                 </p>
 
                 {isClosingSoon(s.deadline) && (
                   <span className="text-xs bg-red-100 text-red-600 px-2 py-1 rounded">
-                    ⏳ Closing Soon
+                    Closing Soon
                   </span>
                 )}
 
-                <a
-                  href={s.link}
-                  className="block mt-3 text-sm font-semibold text-purple-600 hover:underline"
+                <button
+                  onClick={() => alert("Redirecting to official application portal")}
+                  className="block mt-3 text-purple-600 text-sm font-semibold"
                 >
                   Apply Now →
-                </a>
+                </button>
 
               </div>
             ))}
 
-            {tab === "scholarships" && scholarships.filter((s) =>
-              s.name.toLowerCase().includes(search.toLowerCase())
-              ).length === 0 && (
-              <p className="text-gray-400 text-center col-span-3">
-                No scholarships match your filters.
-              </p>
-            )}
-
+          {/* SCHEMES */}
           {tab === "schemes" &&
-            schemes.map((s) => (
+            schemes
+              .filter((s) =>
+                searchTerm === "" ||
+                s.name.toLowerCase().includes(searchTerm.toLowerCase())
+              )
+              .map((s) => (
 
-              <div
-                key={s.id}
-                className="border rounded-xl p-5 shadow hover:shadow-lg"
-              >
+              <div key={s.id} className="border rounded-xl p-5 shadow hover:shadow-lg bg-white">
 
-                <h3 className="font-semibold">
-                  {s.name}
-                </h3>
+                <h3 className="font-semibold">{s.name}</h3>
 
-                <p className="text-gray-500 text-sm">
-                  {s.provider}
-                </p>
+                <p className="text-sm text-gray-500">{s.provider}</p>
 
-                <p className="text-sm mt-2">
-                  {s.description}
-                </p>
+                <p className="text-sm mt-2">{s.description}</p>
 
-                <a
-                  href={s.link}
-                  className="text-pink-500 text-sm mt-3 inline-block"
+                <button
+                  onClick={() => alert("Opening scheme details")}
+                  className="text-pink-500 text-sm mt-3"
                 >
                   Learn More →
-                </a>
+                </button>
 
               </div>
             ))}
 
+          {/* INTERNSHIPS */}
           {tab === "internships" &&
-            internships.map((i) => (
+            internships
+                .filter((i) =>
+                  searchTerm === "" ||
+                  i.name.toLowerCase().includes(searchTerm.toLowerCase())
+                )
+              .map((i) => (
 
-              <div
-                key={i.id}
-                className="border rounded-xl p-5 shadow hover:shadow-lg"
-              >
+              <div key={i.id} className="border rounded-xl p-5 shadow hover:shadow-lg bg-white">
 
-                <h3 className="font-semibold">
-                  {i.name}
-                </h3>
+                <h3 className="font-semibold">{i.name}</h3>
 
-                <p className="text-gray-500 text-sm">
-                  {i.company}
+                <p className="text-sm text-gray-500">
+                  {i.company} · {i.location}
                 </p>
 
-                <p className="text-purple-600 font-bold">
-                  {i.stipend}
-                </p>
+                <p className="text-purple-600 font-bold">{i.stipend}</p>
 
-                <p className="text-gray-400 text-sm">
+                <p className="text-xs text-gray-400 mb-2">
                   Deadline: {i.deadline}
                 </p>
 
-                <a
-                  href={i.link}
-                  className="text-purple-600 text-sm mt-3 inline-block"
+                <button
+                  onClick={() => alert("Redirecting to internship application portal")}
+                  className="text-purple-600 text-sm"
                 >
                   Apply →
-                </a>
+                </button>
 
               </div>
             ))}
 
         </div>
       )}
+
     </main>
   );
 }
