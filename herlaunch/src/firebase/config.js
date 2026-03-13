@@ -1,26 +1,13 @@
-// ============================================
-// P3's FILE — Fill in your Firebase credentials
-// ============================================
-// Steps:
-// 1. Go to https://console.firebase.google.com
-// 2. Create a new project called "herlaunch"
-// 3. Add a Web App
-// 4. Copy your config values below
-// 5. In Firestore, create these collections:
-//    - scholarships
-//    - schemes
-//    - internships
-
 import { initializeApp } from 'firebase/app'
 import { getFirestore } from 'firebase/firestore'
 
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyD61r27C6szC31mpxzJlOTAmYkKtqyw3gY",
+  authDomain: "unnathi-f3d35.firebaseapp.com",
+  projectId: "unnathi-f3d35",
+  storageBucket: "unnathi-f3d35.firebasestorage.app",
+  messagingSenderId: "719515032847",
+  appId: "1:719515032847:web:5898c41f19999e7dcf327a"
 }
 
 const app = initializeApp(firebaseConfig)
