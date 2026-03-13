@@ -1,12 +1,7 @@
-// ============================================
-// P3's FILE — All database functions go here
-// P1, P2, P4 just import and call these
-// ============================================
-
 import { db } from '../firebase/config'
-import { collection, getDocs, query, where } from 'firebase/firestore'
+import { collection, getDocs } from 'firebase/firestore'
 
-// ---- DUMMY DATA (use this until Firebase is connected) ----
+// DUMMY DATA (backup if Firebase fails) 
 export const DUMMY_SCHOLARSHIPS = [
   { id: 1, name: "Post Matric Scholarship", provider: "Karnataka Govt", amount: "₹15,000/yr", deadline: "31 March 2026", category: "OBC/SC/ST", course: "All", state: "Karnataka", link: "#" },
   { id: 2, name: "Pragati Scholarship", provider: "AICTE", amount: "₹50,000/yr", deadline: "15 April 2026", category: "All", course: "Engineering", state: "All India", link: "#" },
@@ -27,40 +22,54 @@ export const DUMMY_INTERNSHIPS = [
   { id: 3, name: "UI/UX Intern", company: "Razorpay", location: "Bangalore", stipend: "₹20,000/mo", deadline: "1 April 2026", link: "#" },
 ]
 
-// ---- REAL FIREBASE FUNCTIONS (P3 uncomments these when Firebase is ready) ----
+// REAL FIREBASE FUNCTIONS 
 
-// Fetch all scholarships
 export const getScholarships = async () => {
-  // TODO P3: Uncomment below and remove the dummy return when Firebase is ready
-  // const snapshot = await getDocs(collection(db, 'scholarships'))
-  // return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
-  return DUMMY_SCHOLARSHIPS
+  try {
+    const snapshot = await getDocs(collection(db, 'scholarships'))
+    const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+    return data.length > 0 ? data : DUMMY_SCHOLARSHIPS
+  } catch (err) {
+    console.error("Firebase error, using dummy data:", err)
+    return DUMMY_SCHOLARSHIPS
+  }
 }
 
-// Fetch scholarships filtered by state and/or category
 export const getFilteredScholarships = async (state = '', category = '', course = '') => {
-  // TODO P3: Add Firebase filtering logic here
-  // For now filters the dummy data
-  return DUMMY_SCHOLARSHIPS.filter(s => {
-    const matchState = !state || s.state === state || s.state === 'All India'
-    const matchCategory = !category || s.category === category || s.category === 'All'
-    const matchCourse = !course || s.course === course || s.course === 'All'
-    return matchState && matchCategory && matchCourse
-  })
+  try {
+    const snapshot = await getDocs(collection(db, 'scholarships'))
+    let data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+    if (data.length === 0) data = DUMMY_SCHOLARSHIPS
+    return data.filter(s => {
+      const matchState = !state || s.state === state || s.state === 'All India'
+      const matchCategory = !category || s.category === category || s.category === 'All'
+      const matchCourse = !course || s.course === course || s.course === 'All'
+      return matchState && matchCategory && matchCourse
+    })
+  } catch (err) {
+    console.error("Firebase error, using dummy data:", err)
+    return DUMMY_SCHOLARSHIPS
+  }
 }
 
-// Fetch all government schemes
 export const getSchemes = async () => {
-  // TODO P3: Uncomment below when Firebase is ready
-  // const snapshot = await getDocs(collection(db, 'schemes'))
-  // return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
-  return DUMMY_SCHEMES
+  try {
+    const snapshot = await getDocs(collection(db, 'schemes'))
+    const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+    return data.length > 0 ? data : DUMMY_SCHEMES
+  } catch (err) {
+    console.error("Firebase error, using dummy data:", err)
+    return DUMMY_SCHEMES
+  }
 }
 
-// Fetch all internships
 export const getInternships = async () => {
-  // TODO P3: Uncomment below when Firebase is ready
-  // const snapshot = await getDocs(collection(db, 'internships'))
-  // return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
-  return DUMMY_INTERNSHIPS
+  try {
+    const snapshot = await getDocs(collection(db, 'internships'))
+    const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+    return data.length > 0 ? data : DUMMY_INTERNSHIPS
+  } catch (err) {
+    console.error("Firebase error, using dummy data:", err)
+    return DUMMY_INTERNSHIPS
+  }
 }
