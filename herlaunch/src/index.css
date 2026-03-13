@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #7B2D8B;
+  --secondary: #E91E8C;
+  --accent: #FFD700;
+  --dark: #1A1A2E;
+  --light: #F9F0FF;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: #fdfaff;
+  color: #1A1A2E;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
