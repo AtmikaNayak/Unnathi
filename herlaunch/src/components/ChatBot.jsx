@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 // Get free key at: https://openrouter.ai  (free tier, no credit card needed)
-const OPENROUTER_API_KEY = "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"
+const OPENROUTER_API_KEY = "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"
 
 const SYSTEM_PROMPT = `You are HerBot, a helpful assistant on HerLaunch — a platform for women to find scholarships, government schemes, internships, and learn about personal finance.
 
