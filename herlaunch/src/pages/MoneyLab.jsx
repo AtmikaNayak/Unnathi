@@ -66,9 +66,9 @@ const quizQuestions = [
   {
     id: 1,
     question: "What is a good emergency fund target?",
-    options: ["1 month of expenses", "3â€“6 months of expenses", "12 months of expenses"],
+    options: ["1 month of expenses", "3–6 months of expenses", "12 months of expenses"],
     answer: 1,
-    tip: "Most experts recommend saving 3â€“6 months of essential expenses."
+    tip: "Most experts recommend saving 3–6 months of essential expenses."
   },
   {
     id: 2,
@@ -142,7 +142,7 @@ export default function MoneyLab() {
 
   return (
     <main className="max-w-6xl mx-auto px-6 py-12">
-      <h1 className="font-display text-4xl font-bold text-dark mb-2">Money Lab ðŸ’°</h1>
+      <h1 className="font-display text-4xl font-bold text-dark mb-2">Money Lab 💰</h1>
       <p className="text-gray-500 mb-10">Your beginner-friendly guide to budgeting, saving, and investing.</p>
 
       {/* Milestones */}
@@ -167,7 +167,7 @@ export default function MoneyLab() {
               }`}
               aria-pressed={m.done}
             >
-              <span>{m.done ? 'âœ…' : 'â­•'}</span>
+              <span>{m.done ? '✅' : '⭕'}</span>
               <span>{m.label}</span>
             </button>
           ))}
@@ -178,12 +178,12 @@ export default function MoneyLab() {
       {/* Simulator CTA */}
       <section className="bg-light border border-purple-100 rounded-2xl p-8 mb-12 flex items-center justify-between flex-wrap gap-4">
         <div>
-          <h2 className="font-display text-2xl font-bold text-dark mb-2">Investment Simulator ðŸ“Š</h2>
-          <p className="text-gray-500">See how â‚¹500/month can grow into lakhs over time. Try it now!</p>
+          <h2 className="font-display text-2xl font-bold text-dark mb-2">Investment Simulator 📊</h2>
+          <p className="text-gray-500">See how ₹500/month can grow into lakhs over time. Try it now!</p>
         </div>
         <Link to="/simulator"
           className="bg-primary text-white px-6 py-3 rounded-full font-semibold hover:bg-purple-800 transition">
-          Open Simulator â†’
+          Open Simulator →
         </Link>
       </section>
 
@@ -318,7 +318,7 @@ export default function MoneyLab() {
       </section>
       {/* 50/30/20 Rule */}
       <section className="mt-12 bg-white border border-purple-100 rounded-2xl p-8 shadow-sm">
-        <h2 className="font-display text-2xl font-bold text-dark mb-4">The 50/30/20 Rule ðŸŽ¯</h2>
+        <h2 className="font-display text-2xl font-bold text-dark mb-4">The 50/30/20 Rule 🎯</h2>
         <p className="text-gray-500 mb-6">A simple way to split your income or pocket money every month:</p>
         <div className="grid grid-cols-3 gap-4 text-center">
           <div className="bg-primary text-white rounded-xl p-5">
