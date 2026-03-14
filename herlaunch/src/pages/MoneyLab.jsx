@@ -1,15 +1,57 @@
-// P2's FILE
+﻿// P2's FILE
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import InvestmentSimulator from '../components/InvestmentSimulator'
 
 const topics = [
-  { emoji: "🏦", title: "Emergency Fund", desc: "Before investing anything, save 3–6 months of expenses. This is your safety net.", level: 1 },
-  { emoji: "📊", title: "SIP (Systematic Investment Plan)", desc: "Invest a fixed amount monthly in mutual funds. Start with just ₹500/month.", level: 2 },
-  { emoji: "🏛️", title: "Fixed Deposit (FD)", desc: "Safe, guaranteed returns. Good for short-term goals. Typically 6–7% per year.", level: 2 },
-  { emoji: "📮", title: "PPF (Public Provident Fund)", desc: "Long-term savings with tax benefits. Lock-in of 15 years but great returns.", level: 3 },
-  { emoji: "📈", title: "Stocks", desc: "Higher risk, higher reward. Only invest money you don't need for 5+ years.", level: 4 },
-  { emoji: "🛡️", title: "Insurance", desc: "Health insurance first, always. Protects you from unexpected medical bills.", level: 3 },
+  {
+    emoji: "🏦",
+    title: "Emergency Fund",
+    desc: "Before investing anything, save 3–6 months of expenses. This is your safety net.",
+    level: 1,
+    details:
+      "Goal: cover essentials like rent, groceries, transport, and bills for 3–6 months. Keep it liquid in a savings account or short-term RD so you can access it immediately. Build it first, even before aggressive investing."
+  },
+  {
+    emoji: "📊",
+    title: "SIP (Systematic Investment Plan)",
+    desc: "Invest a fixed amount monthly in mutual funds. Start with just ₹500/month.",
+    level: 2,
+    details:
+      "Best for consistent, long-term growth. SIPs help average your purchase price and reduce timing risk. Start small, increase yearly, and pick a diversified mutual fund rather than single-sector funds at the beginning."
+  },
+  {
+    emoji: "🏛️",
+    title: "Fixed Deposit (FD)",
+    desc: "Safe, guaranteed returns. Good for short-term goals. Typically 6–7% per year.",
+    level: 2,
+    details:
+      "Use for goals within 1–3 years (fees, gadgets, emergency buffer top‑ups). Compare interest rates and lock-in periods. Check penalties for early withdrawal and whether the FD is cumulative or monthly payout."
+  },
+  {
+    emoji: "📮",
+    title: "PPF (Public Provident Fund)",
+    desc: "Long-term savings with tax benefits. Lock-in of 15 years but great returns.",
+    level: 3,
+    details:
+      "Great for long-term, low-risk wealth building. Government-backed, tax benefits on contribution and interest. Ideal for goals like higher education, home down payment, or retirement."
+  },
+  {
+    emoji: "📈",
+    title: "Stocks",
+    desc: "Higher risk, higher reward. Only invest money you don't need for 5+ years.",
+    level: 4,
+    details:
+      "Build this only after your emergency fund and insurance are set. Prefer diversified index funds or blue‑chip stocks early on. Avoid short-term trading until you understand risk, volatility, and research basics."
+  },
+  {
+    emoji: "🛡️",
+    title: "Insurance",
+    desc: "Health insurance first, always. Protects you from unexpected medical bills.",
+    level: 3,
+    details:
+      "Insurance protects your savings from sudden shocks. Start with health insurance, then consider term life if you have dependents. Keep insurance and investments separate so you know exactly what you're protecting vs. growing."
+  },
 ]
 
 const initialMilestones = [
@@ -24,9 +66,9 @@ const quizQuestions = [
   {
     id: 1,
     question: "What is a good emergency fund target?",
-    options: ["1 month of expenses", "3–6 months of expenses", "12 months of expenses"],
+    options: ["1 month of expenses", "3â€“6 months of expenses", "12 months of expenses"],
     answer: 1,
-    tip: "Most experts recommend saving 3–6 months of essential expenses."
+    tip: "Most experts recommend saving 3â€“6 months of essential expenses."
   },
   {
     id: 2,
@@ -64,6 +106,7 @@ export default function MoneyLab() {
   const [selected, setSelected] = useState(null)
   const [score, setScore] = useState(0)
   const [showResult, setShowResult] = useState(false)
+  const [activeTopic, setActiveTopic] = useState(null)
 
   const completedCount = milestones.filter(m => m.done).length
   const progressPct = Math.round((completedCount / milestones.length) * 100)
@@ -99,7 +142,7 @@ export default function MoneyLab() {
 
   return (
     <main className="max-w-6xl mx-auto px-6 py-12">
-      <h1 className="font-display text-4xl font-bold text-dark mb-2">Money Lab 💰</h1>
+      <h1 className="font-display text-4xl font-bold text-dark mb-2">Money Lab ðŸ’°</h1>
       <p className="text-gray-500 mb-10">Your beginner-friendly guide to budgeting, saving, and investing.</p>
 
       {/* Milestones */}
@@ -124,7 +167,7 @@ export default function MoneyLab() {
               }`}
               aria-pressed={m.done}
             >
-              <span>{m.done ? '✅' : '⭕'}</span>
+              <span>{m.done ? 'âœ…' : 'â­•'}</span>
               <span>{m.label}</span>
             </button>
           ))}
@@ -135,12 +178,12 @@ export default function MoneyLab() {
       {/* Simulator CTA */}
       <section className="bg-light border border-purple-100 rounded-2xl p-8 mb-12 flex items-center justify-between flex-wrap gap-4">
         <div>
-          <h2 className="font-display text-2xl font-bold text-dark mb-2">Investment Simulator 📊</h2>
-          <p className="text-gray-500">See how ₹500/month can grow into lakhs over time. Try it now!</p>
+          <h2 className="font-display text-2xl font-bold text-dark mb-2">Investment Simulator ðŸ“Š</h2>
+          <p className="text-gray-500">See how â‚¹500/month can grow into lakhs over time. Try it now!</p>
         </div>
         <Link to="/simulator"
           className="bg-primary text-white px-6 py-3 rounded-full font-semibold hover:bg-purple-800 transition">
-          Open Simulator →
+          Open Simulator â†’
         </Link>
       </section>
 
@@ -153,16 +196,60 @@ export default function MoneyLab() {
       <h2 className="font-display text-2xl font-bold text-dark mb-6">Learn the Basics</h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         {topics.map((t, i) => (
-          <div key={i} className="bg-white border border-purple-100 rounded-xl p-6 shadow-sm hover:shadow-md transition">
+          <button
+            type="button"
+            key={i}
+            onClick={() => setActiveTopic(t)}
+            className="text-left bg-white border border-purple-100 rounded-xl p-6 shadow-sm hover:shadow-md transition focus:outline-none focus:ring-2 focus:ring-primary/30"
+          >
             <div className="text-3xl mb-3">{t.emoji}</div>
             <div className="flex justify-between items-center mb-2">
               <h3 className="font-semibold text-dark">{t.title}</h3>
               <span className="text-xs bg-light text-primary px-2 py-1 rounded-full">Level {t.level}</span>
             </div>
             <p className="text-sm text-gray-500">{t.desc}</p>
-          </div>
+            <p className="text-xs text-primary mt-3">Click to learn more</p>
+          </button>
         ))}
       </div>
+
+      {activeTopic && (
+        <div
+          className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="topic-title"
+          onClick={() => setActiveTopic(null)}
+        >
+          <div
+            className="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6 border border-purple-100"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-3">
+                <span className="text-2xl">{activeTopic.emoji}</span>
+                <h3 id="topic-title" className="font-display text-xl font-bold text-dark">
+                  {activeTopic.title}
+                </h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setActiveTopic(null)}
+                className="text-gray-500 hover:text-gray-700"
+                aria-label="Close"
+              >
+                ✕
+              </button>
+            </div>
+            <p className="text-sm text-gray-600 mb-4">{activeTopic.desc}</p>
+            {activeTopic.details && (
+              <div className="bg-light rounded-xl p-4 text-sm text-gray-600">
+                {activeTopic.details}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* Quiz Flow */}
       <section className="mt-12 bg-white border border-purple-100 rounded-2xl p-8 shadow-sm">
@@ -231,7 +318,7 @@ export default function MoneyLab() {
       </section>
       {/* 50/30/20 Rule */}
       <section className="mt-12 bg-white border border-purple-100 rounded-2xl p-8 shadow-sm">
-        <h2 className="font-display text-2xl font-bold text-dark mb-4">The 50/30/20 Rule 🎯</h2>
+        <h2 className="font-display text-2xl font-bold text-dark mb-4">The 50/30/20 Rule ðŸŽ¯</h2>
         <p className="text-gray-500 mb-6">A simple way to split your income or pocket money every month:</p>
         <div className="grid grid-cols-3 gap-4 text-center">
           <div className="bg-primary text-white rounded-xl p-5">
@@ -254,3 +341,4 @@ export default function MoneyLab() {
     </main>
   )
 }
+
