@@ -1,0 +1,162 @@
+[
+  {
+    "#": 1,
+    "name": "Stree Shakti Package",
+    "provider": "SBI",
+    "description": "Loan up to ₹25 lakhs for women entrepreneurs at reduced interest rates. Concession of 0.5% on interest.",
+    "category": "Loan",
+    "link": "https://sbi.bank.in/web/business/sme/sme-loans/sme-loan-to-women-entrepreneur-sbi-asmita"
+  },
+  {
+    "#": 2,
+    "name": "Mudra Loan - Mahila Udyam Nidhi",
+    "provider": "Govt of India / Banks",
+    "description": "Micro loans from ₹50,000 to ₹10 lakhs for women-owned small businesses. No collateral needed.",
+    "category": "Loan",
+    "link": "https://www.mudra.org.in/"
+  },
+  {
+    "#": 3,
+    "name": "Sukanya Samriddhi Yojana",
+    "provider": "Post Office / Banks",
+    "description": "High-interest savings scheme (8.2% p.a.) for girl child below 10 years. Tax benefits under 80C.",
+    "category": "Savings",
+    "link": "https://www.indiapost.gov.in/Financial/pages/content/sukanya-samriddhi-account.aspx"
+  },
+  {
+    "#": 4,
+    "name": "Beti Bachao Beti Padhao",
+    "provider": "Govt of India",
+    "description": "Welfare services for the girl child — education support, health, and financial empowerment.",
+    "category": "Welfare",
+    "link": "https://www.pmindia.gov.in/en/government_tr_rec/beti-bachao-beti-padhao-caring-for-the-girl-child/"
+  },
+  {
+    "#": 5,
+    "name": "Mahila Samridhi Yojana",
+    "provider": "NABARD",
+    "description": "Savings and micro-credit scheme for rural women. Encourages habit of saving with incentives.",
+    "category": "Savings",
+    "link": "https://nsfdc.nic.in/en/mahila-samriddhi-yojana"
+  },
+  {
+    "#": 6,
+    "name": "Pradhan Mantri Jan Dhan Yojana",
+    "provider": "Govt of India",
+    "description": "Zero balance bank account with RuPay debit card, ₹1 lakh accident insurance, ₹30,000 life insurance.",
+    "category": "Banking",
+    "link": "https://pmjdy.gov.in/"
+  },
+  {
+    "#": 7,
+    "name": "Annpurna Scheme",
+    "provider": "Banks",
+    "description": "Loan up to ₹50,000 for women in food catering business. Repay in 3 years.",
+    "category": "Loan",
+    "link": "https://dfpd.gov.in/allocation-of-food-grains/en"
+  },
+  {
+    "#": 8,
+    "name": "Mahila Shakti Kendra",
+    "provider": "Ministry of WCD",
+    "description": "Community participation and empowerment of rural women through skill development and employment.",
+    "category": "Empowerment",
+    "link": "https://missionshakti.wcd.gov.in/"
+  },
+  {
+    "#": 9,
+    "name": "Support to Training and Employment (STEP)",
+    "provider": "Ministry of WCD",
+    "description": "Skills training for women above 16 years in agriculture, textiles, handicrafts, and more.",
+    "category": "Skill Development",
+    "link": "https://wcd.delhi.gov.in/scert/support-training-employment-women"
+  },
+  {
+    "#": 10,
+    "name": "Rashtriya Mahila Kosh (RMK)",
+    "provider": "Ministry of WCD",
+    "description": "Micro-credit to poor women for income-generating activities at very low interest rates.",
+    "category": "Micro-credit",
+    "link": "https://missionshakti.wcd.gov.in/resource"
+  },
+  {
+    "#": 11,
+    "name": "PM Kaushal Vikas Yojana (Women)",
+    "provider": "MSDE",
+    "description": "Free skill training for women in 300+ job roles. Certification and placement assistance.",
+    "category": "Skill Development",
+    "link": "https://nsdcindia.org/pmkvy-overview"
+  },
+  {
+    "#": 12,
+    "name": "Deen Dayal Upadhyaya Grameen Kaushalya (Women)",
+    "provider": "MoRD",
+    "description": "Placement-linked skill training for rural women aged 15-35 years.",
+    "category": "Skill Development",
+    "link": "http://ddugky.info/"
+  },
+  {
+    "#": 13,
+    "name": "Swayam Siddha",
+    "provider": "Ministry of WCD",
+    "description": "Self Help Group scheme linking women to credit, income generation, and awareness programs.",
+    "category": "SHG",
+    "link": "https://swayamsiddhafoundation.org/bachat-gat-registration/"
+  },
+  {
+    "#": 14,
+    "name": "Swarna Jayanti Shahri Rozgar Yojana",
+    "provider": "Govt of India",
+    "description": "Urban employment and self-employment for women below poverty line through SHGs.",
+    "category": "Employment",
+    "link": "https://nulm.gov.in/"
+  },
+  {
+    "#": 15,
+    "name": "Mahila E-Haat",
+    "provider": "Ministry of WCD",
+    "description": "Online marketing platform for women entrepreneurs to sell products directly to buyers.",
+    "category": "E-commerce",
+    "link": "http://www.msmedinewdelhi.gov.in/en/Mahila%20eHaat.asp"
+  },
+  {
+    "#": 16,
+    "name": "Stand Up India",
+    "provider": "SIDBI",
+    "description": "Loans between ₹10 lakh and ₹1 crore for women SC/ST entrepreneurs to set up greenfield enterprises.",
+    "category": "Loan",
+    "link": "https://www.standupmitra.in/"
+  },
+  {
+    "#": 17,
+    "name": "PM SVANidhi (Women Street Vendors)",
+    "provider": "MoHUA",
+    "description": "Working capital loans of ₹10,000 to ₹50,000 for women street vendors. Digital payment incentives.",
+    "category": "Loan",
+    "link": "https://pmsvanidhi.mohua.gov.in/"
+  },
+  {
+    "#": 18,
+    "name": "CGTMSE for Women",
+    "provider": "SIDBI/Govt",
+    "description": "Credit guarantee scheme — women entrepreneurs get loans up to ₹2 crore without collateral.",
+    "category": "Loan",
+    "link": "https://www.cgtmse.in/"
+  },
+  {
+    "#": 19,
+    "name": "Udyogini Scheme",
+    "provider": "PWDS/Banks",
+    "description": "Subsidized loans up to ₹3 lakhs for women in 88 business categories. SC/ST women get full subsidy.",
+    "category": "Loan",
+    "link": "https://udyogini.org/?gad_source=1&gad_campaignid=15425539919&gbraid=0AAAAAoQycMjnVTUVfCkZjwnptKsN8ndhf&gclid=CjwKCAjw687NBhB4EiwAQ645dm_pIqF4LcE0UnbE9P0DHjmP4noJNpVMvWqItvnsUvKP_TYMQ2kYJhoC57EQAvD_BwE"
+  },
+  {
+    "#": 20,
+    "name": "Nari Shakti Puraskar",
+    "provider": "Ministry of WCD",
+    "description": "Annual award of ₹2 lakh for women/institutions doing exceptional work for women empowerment.",
+    "category": "Award",
+    "link": "https://www.ncw.gov.in/"
+  }
+]

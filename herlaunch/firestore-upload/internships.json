@@ -1,0 +1,182 @@
+[
+  {
+    "#": 1,
+    "name": "Software Engineer Intern",
+    "company": "Infosys",
+    "location": "Bangalore",
+    "stipend": "₹15,000/mo",
+    "deadline": "30-Mar-26",
+    "link": "https://infosys.com/careers"
+  },
+  {
+    "#": 2,
+    "name": "Data Analyst Intern",
+    "company": "Wipro",
+    "location": "Remote",
+    "stipend": "₹12,000/mo",
+    "deadline": "25-Mar-26",
+    "link": "https://wipro.com/careers"
+  },
+  {
+    "#": 3,
+    "name": "UI/UX Designer Intern",
+    "company": "Razorpay",
+    "location": "Bangalore",
+    "stipend": "₹20,000/mo",
+    "deadline": "1-Apr-26",
+    "link": "https://razorpay.com/jobs"
+  },
+  {
+    "#": 4,
+    "name": "Frontend Developer Intern",
+    "company": "Flipkart",
+    "location": "Bangalore",
+    "stipend": "₹25,000/mo",
+    "deadline": "15-Apr-26",
+    "link": "https://flipkartcareers.com"
+  },
+  {
+    "#": 5,
+    "name": "Backend Developer Intern",
+    "company": "Swiggy",
+    "location": "Bangalore",
+    "stipend": "₹20,000/mo",
+    "deadline": "10-Apr-26",
+    "link": "https://careers.swiggy.com"
+  },
+  {
+    "#": 6,
+    "name": "Machine Learning Intern",
+    "company": "TCS Research",
+    "location": "Hyderabad",
+    "stipend": "₹18,000/mo",
+    "deadline": "20-Apr-26",
+    "link": "https://careers.tcs.com"
+  },
+  {
+    "#": 7,
+    "name": "Product Management Intern",
+    "company": "Meesho",
+    "location": "Bangalore",
+    "stipend": "₹30,000/mo",
+    "deadline": "5-Apr-26",
+    "link": "https://meesho.io/jobs"
+  },
+  {
+    "#": 8,
+    "name": "Business Analyst Intern",
+    "company": "Deloitte",
+    "location": "Mumbai",
+    "stipend": "₹22,000/mo",
+    "deadline": "30-Apr-26",
+    "link": "https://careers.deloitte.com"
+  },
+  {
+    "#": 9,
+    "name": "Cybersecurity Intern",
+    "company": "HCL Technologies",
+    "location": "Noida",
+    "stipend": "₹15,000/mo",
+    "deadline": "15-Apr-26",
+    "link": "https://hcltech.com/careers"
+  },
+  {
+    "#": 10,
+    "name": "Cloud Engineer Intern",
+    "company": "IBM India",
+    "location": "Bangalore",
+    "stipend": "₹20,000/mo",
+    "deadline": "1-May-26",
+    "link": "https://ibm.com/careers/in-en"
+  },
+  {
+    "#": 11,
+    "name": "Android Developer Intern",
+    "company": "Paytm",
+    "location": "Noida",
+    "stipend": "₹18,000/mo",
+    "deadline": "10-Apr-26",
+    "link": "https://paytm.com/careers"
+  },
+  {
+    "#": 12,
+    "name": "Data Science Intern",
+    "company": "Amazon India",
+    "location": "Hyderabad",
+    "stipend": "₹35,000/mo",
+    "deadline": "30-Mar-26",
+    "link": "https://amazon.jobs"
+  },
+  {
+    "#": 13,
+    "name": "DevOps Intern",
+    "company": "Myntra",
+    "location": "Bangalore",
+    "stipend": "₹22,000/mo",
+    "deadline": "20-Apr-26",
+    "link": "https://myntra.com/careers"
+  },
+  {
+    "#": 14,
+    "name": "Full Stack Intern",
+    "company": "Zomato",
+    "location": "Gurugram",
+    "stipend": "₹25,000/mo",
+    "deadline": "15-Apr-26",
+    "link": "https://careers.zomato.com"
+  },
+  {
+    "#": 15,
+    "name": "Research Intern (AI/ML)",
+    "company": "Microsoft India",
+    "location": "Hyderabad",
+    "stipend": "₹40,000/mo",
+    "deadline": "1-Apr-26",
+    "link": "https://careers.microsoft.com"
+  },
+  {
+    "#": 16,
+    "name": "Finance Intern",
+    "company": "HDFC Bank",
+    "location": "Mumbai",
+    "stipend": "₹15,000/mo",
+    "deadline": "30-Apr-26",
+    "link": "https://hdfcbank.com/careers"
+  },
+  {
+    "#": 17,
+    "name": "Marketing Tech Intern",
+    "company": "Google India",
+    "location": "Bangalore",
+    "stipend": "₹45,000/mo",
+    "deadline": "1-Apr-26",
+    "link": "https://careers.google.com"
+  },
+  {
+    "#": 18,
+    "name": "Graphic Design Intern",
+    "company": "Adobe India",
+    "location": "Noida",
+    "stipend": "₹20,000/mo",
+    "deadline": "15-Apr-26",
+    "link": "https://adobe.com/careers"
+  },
+  {
+    "#": 19,
+    "name": "Content & Strategy Intern",
+    "company": "LinkedIn India",
+    "location": "Bangalore",
+    "stipend": "₹25,000/mo",
+    "deadline": "10-Apr-26",
+    "link": "https://careers.linkedin.com"
+  },
+  {
+    "#": 20,
+    "name": "Operations Intern",
+    "company": "Ola",
+    "location": "Bangalore",
+    "stipend": "₹18,000/mo",
+    "deadline": "20-Apr-26",
+    "link": "https://ola.careers"
+  }
+]
