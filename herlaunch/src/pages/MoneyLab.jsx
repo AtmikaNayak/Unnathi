@@ -10,7 +10,7 @@ const topics = [
     desc: "Before investing anything, save 3–6 months of expenses. This is your safety net.",
     level: 1,
     details:
-      "Goal: cover essentials like rent, groceries, transport, and bills for 3–6 months. Keep it liquid in a savings account or short-term RD so you can access it immediately. Build it first, even before aggressive investing."
+      "Before investing anything, build an emergency fund that can cover 3–6 months of essential expenses. This money acts as a safety net during unexpected situations like medical emergencies, job loss, or urgent repairs.\n\nHow much should you save? Calculate your basic monthly expenses such as rent, groceries, transport, and bills.\nExample:\n• Rent: ₹10,000\n• Groceries: ₹4,000\n• Transport: ₹2,000\n• Bills: ₹2,000\nMonthly essentials = ₹18,000\nEmergency fund goal = ₹54,000 – ₹1,08,000\n\nWhere should you keep it? Keep this money in places that are safe and easily accessible, such as:\n• Savings account\n• High-interest savings account\n• Short-term recurring deposit (RD)\n• Liquid mutual funds\nAvoid investing your emergency fund in stocks or risky assets since you may need the money quickly.\n\nWhen should you use it? Use it only for genuine emergencies like:\n• Medical emergencies\n• Sudden job loss\n• Urgent travel\n• Unexpected home repairs\n\nTip: Start small. Even saving ₹500–₹1000 per month can slowly build a strong financial safety net."
   },
   {
     emoji: "📊",
@@ -18,7 +18,7 @@ const topics = [
     desc: "Invest a fixed amount monthly in mutual funds. Start with just ₹500/month.",
     level: 2,
     details:
-      "Best for consistent, long-term growth. SIPs help average your purchase price and reduce timing risk. Start small, increase yearly, and pick a diversified mutual fund rather than single-sector funds at the beginning."
+      "A SIP allows you to invest a fixed amount of money regularly (usually every month) into a mutual fund. Instead of investing a large lump sum, SIP helps you build wealth gradually and consistently.\n\nWhy SIP is powerful\n• You can start with as little as ₹500 per month\n• It encourages discipline and consistent investing\n• You benefit from compounding over long periods\n• It reduces the stress of trying to time the market\n\nHow SIP works\nEvery month, a fixed amount is automatically invested into a mutual fund. When the market is low, you buy more units, and when the market is high, you buy fewer units. Over time this averages your purchase cost and reduces market timing risk.\n\nExample\nIf you invest ₹2000 per month for 10 years at an average return of 12%, your total investment will be:\nTotal invested: ₹2,40,000\nEstimated value: ~₹4,60,000\nThis is the power of long-term compounding.\n\nBeginner tips\n• Start with a diversified equity mutual fund\n• Increase your SIP amount when your income grows\n• Stay invested for at least 5–10 years for better results\n• Avoid stopping SIPs during market dips\n\nTip: The earlier you start a SIP, the more time compounding has to grow your money."
   },
   {
     emoji: "🏛️",
@@ -222,31 +222,53 @@ export default function MoneyLab() {
           onClick={() => setActiveTopic(null)}
         >
           <div
-            className="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6 border border-purple-100"
+            className="bg-white rounded-3xl shadow-2xl max-w-3xl w-full border border-purple-100 overflow-hidden max-h-[85vh] flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center gap-3">
-                <span className="text-2xl">{activeTopic.emoji}</span>
-                <h3 id="topic-title" className="font-display text-xl font-bold text-dark">
-                  {activeTopic.title}
-                </h3>
+            <div className="bg-gradient-to-r from-primary to-purple-700 text-white p-6">
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-2xl bg-white/15 flex items-center justify-center text-2xl">
+                    {activeTopic.emoji}
+                  </div>
+                  <div>
+                    <h3 id="topic-title" className="font-display text-2xl font-bold">
+                      {activeTopic.title}
+                    </h3>
+                    <p className="text-sm text-purple-100 mt-1">{activeTopic.desc}</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-xs bg-white/15 text-white px-3 py-1 rounded-full font-semibold">
+                    Level {activeTopic.level}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => setActiveTopic(null)}
+                    className="text-white/80 hover:text-white"
+                    aria-label="Close"
+                  >
+                    ✕
+                  </button>
+                </div>
               </div>
-              <button
-                type="button"
-                onClick={() => setActiveTopic(null)}
-                className="text-gray-500 hover:text-gray-700"
-                aria-label="Close"
-              >
-                ✕
-              </button>
             </div>
-            <p className="text-sm text-gray-600 mb-4">{activeTopic.desc}</p>
-            {activeTopic.details && (
-              <div className="bg-light rounded-xl p-4 text-sm text-gray-600">
-                {activeTopic.details}
+            <div className="p-6 overflow-y-auto">
+              {activeTopic.details && (
+                <div className="bg-light rounded-2xl p-5 text-sm text-gray-700 whitespace-pre-line leading-relaxed">
+                  {activeTopic.details}
+                </div>
+              )}
+              <div className="mt-5 flex justify-end">
+                <button
+                  type="button"
+                  onClick={() => setActiveTopic(null)}
+                  className="bg-primary text-white px-5 py-2 rounded-full font-semibold hover:bg-purple-800 transition"
+                >
+                  Got it
+                </button>
               </div>
-            )}
+            </div>
           </div>
         </div>
       )}
