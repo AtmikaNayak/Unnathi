@@ -1,6 +1,7 @@
 // P2's FILE
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import InvestmentSimulator from '../components/InvestmentSimulator'
 
 const topics = [
   { emoji: "🏦", title: "Emergency Fund", desc: "Before investing anything, save 3–6 months of expenses. This is your safety net.", level: 1 },
@@ -141,6 +142,11 @@ export default function MoneyLab() {
           className="bg-primary text-white px-6 py-3 rounded-full font-semibold hover:bg-purple-800 transition">
           Open Simulator →
         </Link>
+      </section>
+
+      {/* Quick Simulator */}
+      <section className="mb-12">
+        <InvestmentSimulator />
       </section>
 
       {/* Topics Grid */}
