@@ -1,0 +1,9 @@
+<<<<<<< HEAD
+node_modules/
+dist/
+.env
+=======
+node_modules
+.vite
+dist
+>>>>>>> ce1f54522d137ddcf903c10f257bedb30e68643b
