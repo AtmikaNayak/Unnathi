@@ -10,7 +10,7 @@ const topics = [
     desc: "Before investing anything, save 3–6 months of expenses. This is your safety net.",
     level: 1,
     details:
-      "Goal: cover essentials like rent, groceries, transport, and bills for 3–6 months. Keep it liquid in a savings account or short-term RD so you can access it immediately. Build it first, even before aggressive investing."
+      "Before investing anything, build an emergency fund that can cover 3–6 months of essential expenses. This money acts as a safety net during unexpected situations like medical emergencies, job loss, or urgent repairs.\n\nHow much should you save? Calculate your basic monthly expenses such as rent, groceries, transport, and bills.\nExample:\n• Rent: ₹10,000\n• Groceries: ₹4,000\n• Transport: ₹2,000\n• Bills: ₹2,000\nMonthly essentials = ₹18,000\nEmergency fund goal = ₹54,000 – ₹1,08,000\n\nWhere should you keep it? Keep this money in places that are safe and easily accessible, such as:\n• Savings account\n• High-interest savings account\n• Short-term recurring deposit (RD)\n• Liquid mutual funds\nAvoid investing your emergency fund in stocks or risky assets since you may need the money quickly.\n\nWhen should you use it? Use it only for genuine emergencies like:\n• Medical emergencies\n• Sudden job loss\n• Urgent travel\n• Unexpected home repairs\n\nTip: Start small. Even saving ₹500–₹1000 per month can slowly build a strong financial safety net."
   },
   {
     emoji: "📊",
@@ -18,7 +18,7 @@ const topics = [
     desc: "Invest a fixed amount monthly in mutual funds. Start with just ₹500/month.",
     level: 2,
     details:
-      "Best for consistent, long-term growth. SIPs help average your purchase price and reduce timing risk. Start small, increase yearly, and pick a diversified mutual fund rather than single-sector funds at the beginning."
+      "A SIP allows you to invest a fixed amount of money regularly (usually every month) into a mutual fund. Instead of investing a large lump sum, SIP helps you build wealth gradually and consistently.\n\nWhy SIP is powerful\n• You can start with as little as ₹500 per month\n• It encourages discipline and consistent investing\n• You benefit from compounding over long periods\n• It reduces the stress of trying to time the market\n\nHow SIP works\nEvery month, a fixed amount is automatically invested into a mutual fund. When the market is low, you buy more units, and when the market is high, you buy fewer units. Over time this averages your purchase cost and reduces market timing risk.\n\nExample\nIf you invest ₹2000 per month for 10 years at an average return of 12%, your total investment will be:\nTotal invested: ₹2,40,000\nEstimated value: ~₹4,60,000\nThis is the power of long-term compounding.\n\nBeginner tips\n• Start with a diversified equity mutual fund\n• Increase your SIP amount when your income grows\n• Stay invested for at least 5–10 years for better results\n• Avoid stopping SIPs during market dips\n\nTip: The earlier you start a SIP, the more time compounding has to grow your money."
   },
   {
     emoji: "🏛️",
@@ -26,7 +26,7 @@ const topics = [
     desc: "Safe, guaranteed returns. Good for short-term goals. Typically 6–7% per year.",
     level: 2,
     details:
-      "Use for goals within 1–3 years (fees, gadgets, emergency buffer top‑ups). Compare interest rates and lock-in periods. Check penalties for early withdrawal and whether the FD is cumulative or monthly payout."
+      "A Fixed Deposit (FD) is a safe investment where you deposit money in a bank for a fixed period and earn guaranteed interest. It is one of the most popular low-risk savings options in India.\n\nWhy choose an FD\n• Guaranteed and predictable returns\n• Very low risk compared to stocks or mutual funds\n• Flexible duration options (from a few months to several years)\n• Suitable for people who want stability and safety\n\nTypical Returns\nMost banks offer interest rates of around 6–7% per year, depending on the tenure and bank.\n\nBest use cases\nFDs are ideal for short-term financial goals, such as:\n• College fees\n• Buying a gadget or laptop\n• Travel plans\n• Building a small emergency buffer\n\nTypes of FDs\n• Cumulative FD – Interest is added to the principal and paid at maturity\n• Non-cumulative FD – Interest is paid monthly, quarterly, or yearly\n\nThings to check before opening an FD\n• Compare interest rates across banks\n• Check the lock-in period\n• Understand penalties for early withdrawal\n• Confirm whether interest is compounded or paid out\n\nTip: Use FDs for short-term goals, but rely on investments like SIPs for long-term wealth growth."
   },
   {
     emoji: "📮",
@@ -34,7 +34,7 @@ const topics = [
     desc: "Long-term savings with tax benefits. Lock-in of 15 years but great returns.",
     level: 3,
     details:
-      "Great for long-term, low-risk wealth building. Government-backed, tax benefits on contribution and interest. Ideal for goals like higher education, home down payment, or retirement."
+      "The Public Provident Fund (PPF) is a long-term savings scheme backed by the Government of India. It is designed to help people build wealth safely while also receiving attractive tax benefits.\n\nWhy choose PPF\n• Government-backed, making it a very low-risk investment\n• Offers tax benefits on contributions and interest earned\n• Interest is compounded yearly, helping your money grow steadily\n• Suitable for long-term financial goals\n\nKey features\n• Lock-in period: 15 years\n• Interest rate: Usually around 7–8% per year (set by the government)\n• Minimum yearly investment: ₹500\n• Maximum yearly investment: ₹1.5 lakh\n\nTax advantages\nPPF follows the EEE (Exempt-Exempt-Exempt) tax rule:\n• Contributions are tax-deductible under Section 80C\n• Interest earned is tax-free\n• Final maturity amount is tax-free\n\nBest use cases\nPPF is ideal for long-term goals such as:\n• Higher education\n• Home down payment\n• Retirement savings\n• Building a stable wealth foundation\n\nThings to know\n• You must contribute at least once every year to keep the account active\n• Partial withdrawals are allowed after a few years under certain conditions\n• Because of the long lock-in period, it works best for long-term planning\n\nTip: PPF is perfect for safe long-term savings while using SIPs and equity investments for higher growth."
   },
   {
     emoji: "📈",
@@ -42,7 +42,7 @@ const topics = [
     desc: "Higher risk, higher reward. Only invest money you don't need for 5+ years.",
     level: 4,
     details:
-      "Build this only after your emergency fund and insurance are set. Prefer diversified index funds or blue‑chip stocks early on. Avoid short-term trading until you understand risk, volatility, and research basics."
+      "Stocks represent ownership in a company. When you buy a stock, you are purchasing a small share of that company. If the company grows and performs well, the value of your investment can increase over time.\n\nWhy invest in stocks\n• Potential for higher returns compared to savings accounts or fixed deposits\n• Opportunity to benefit from long-term economic growth\n• Some companies also pay dividends, which are regular payouts to shareholders\n\nImportant things to understand\nStocks can be volatile, meaning their prices can rise and fall frequently in the short term. Because of this, they are better suited for long-term investments (5+ years) rather than quick profits.\n\nBeginner strategy\n• Start with diversified index funds or ETFs\n• Consider well-established blue-chip companies\n• Invest regularly instead of trying to time the market\n• Focus on long-term growth rather than daily price movements\n\nThings to avoid\n• Investing without researching the company\n• Putting all your money into a single stock\n• Short-term trading without understanding market risks\n\nWhen should you start investing in stocks\nMake sure you already have:\n• An emergency fund\n• Basic health insurance\n• Some stable savings\nStocks should be the growth part of your portfolio, not your safety net.\n\nTip: Long-term investors often succeed by staying patient and letting compounding work over many years."
   },
   {
     emoji: "🛡️",
@@ -50,7 +50,7 @@ const topics = [
     desc: "Health insurance first, always. Protects you from unexpected medical bills.",
     level: 3,
     details:
-      "Insurance protects your savings from sudden shocks. Start with health insurance, then consider term life if you have dependents. Keep insurance and investments separate so you know exactly what you're protecting vs. growing."
+      "Insurance is a financial protection tool that helps you handle unexpected expenses and risks without draining your savings. The most important type to start with is health insurance, which covers medical costs during illness or accidents.\n\nWhy insurance is important\n• Medical emergencies can be extremely expensive\n• Insurance protects your savings and emergency fund\n• It reduces financial stress during difficult situations\n\nTypes of insurance to consider\n• Health Insurance – Covers hospital bills, treatments, and medical emergencies\n• Term Life Insurance – Provides financial support to your family if something happens to you\n• Accident Insurance – Covers costs related to accidents or disability\n\nWhere to start\nFor beginners, the priority should be:\n1. Health Insurance – essential for everyone\n2. Term Life Insurance – important if you have family members who depend on your income\n\nImportant things to remember\n• Choose a plan with sufficient coverage rather than the cheapest option\n• Understand what is included and excluded in the policy\n• Review your insurance needs as your income and responsibilities grow\n\nSmart financial rule\nKeep insurance and investments separate. Insurance is meant for protection, while investments are meant for growing your wealth.\n\nTip: Even a basic health insurance plan can protect you from large medical expenses and prevent financial setbacks."
   },
 ]
 
@@ -222,31 +222,53 @@ export default function MoneyLab() {
           onClick={() => setActiveTopic(null)}
         >
           <div
-            className="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6 border border-purple-100"
+            className="bg-white rounded-3xl shadow-2xl max-w-3xl w-full border border-purple-100 overflow-hidden max-h-[85vh] flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center gap-3">
-                <span className="text-2xl">{activeTopic.emoji}</span>
-                <h3 id="topic-title" className="font-display text-xl font-bold text-dark">
-                  {activeTopic.title}
-                </h3>
+            <div className="bg-gradient-to-r from-primary to-purple-700 text-white p-6">
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-2xl bg-white/15 flex items-center justify-center text-2xl">
+                    {activeTopic.emoji}
+                  </div>
+                  <div>
+                    <h3 id="topic-title" className="font-display text-2xl font-bold">
+                      {activeTopic.title}
+                    </h3>
+                    <p className="text-sm text-purple-100 mt-1">{activeTopic.desc}</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-xs bg-white/15 text-white px-3 py-1 rounded-full font-semibold">
+                    Level {activeTopic.level}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => setActiveTopic(null)}
+                    className="text-white/80 hover:text-white"
+                    aria-label="Close"
+                  >
+                    ✕
+                  </button>
+                </div>
               </div>
-              <button
-                type="button"
-                onClick={() => setActiveTopic(null)}
-                className="text-gray-500 hover:text-gray-700"
-                aria-label="Close"
-              >
-                ✕
-              </button>
             </div>
-            <p className="text-sm text-gray-600 mb-4">{activeTopic.desc}</p>
-            {activeTopic.details && (
-              <div className="bg-light rounded-xl p-4 text-sm text-gray-600">
-                {activeTopic.details}
+            <div className="p-6 overflow-y-auto">
+              {activeTopic.details && (
+                <div className="bg-light rounded-2xl p-5 text-sm text-gray-700 whitespace-pre-line leading-relaxed">
+                  {activeTopic.details}
+                </div>
+              )}
+              <div className="mt-5 flex justify-end">
+                <button
+                  type="button"
+                  onClick={() => setActiveTopic(null)}
+                  className="bg-primary text-white px-5 py-2 rounded-full font-semibold hover:bg-purple-800 transition"
+                >
+                  Got it
+                </button>
               </div>
-            )}
+            </div>
           </div>
         </div>
       )}
