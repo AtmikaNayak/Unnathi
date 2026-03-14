@@ -24,7 +24,7 @@ const topics = [
     emoji: "🏛️",
     title: "Fixed Deposit (FD)",
     desc: "Safe, guaranteed returns. Good for short-term goals. Typically 6–7% per year.",
-    level: 2,
+    level: 3,
     details:
       "A Fixed Deposit (FD) is a safe investment where you deposit money in a bank for a fixed period and earn guaranteed interest. It is one of the most popular low-risk savings options in India.\n\nWhy choose an FD\n• Guaranteed and predictable returns\n• Very low risk compared to stocks or mutual funds\n• Flexible duration options (from a few months to several years)\n• Suitable for people who want stability and safety\n\nTypical Returns\nMost banks offer interest rates of around 6–7% per year, depending on the tenure and bank.\n\nBest use cases\nFDs are ideal for short-term financial goals, such as:\n• College fees\n• Buying a gadget or laptop\n• Travel plans\n• Building a small emergency buffer\n\nTypes of FDs\n• Cumulative FD – Interest is added to the principal and paid at maturity\n• Non-cumulative FD – Interest is paid monthly, quarterly, or yearly\n\nThings to check before opening an FD\n• Compare interest rates across banks\n• Check the lock-in period\n• Understand penalties for early withdrawal\n• Confirm whether interest is compounded or paid out\n\nTip: Use FDs for short-term goals, but rely on investments like SIPs for long-term wealth growth."
   },
@@ -32,7 +32,7 @@ const topics = [
     emoji: "📮",
     title: "PPF (Public Provident Fund)",
     desc: "Long-term savings with tax benefits. Lock-in of 15 years but great returns.",
-    level: 3,
+    level: 4,
     details:
       "The Public Provident Fund (PPF) is a long-term savings scheme backed by the Government of India. It is designed to help people build wealth safely while also receiving attractive tax benefits.\n\nWhy choose PPF\n• Government-backed, making it a very low-risk investment\n• Offers tax benefits on contributions and interest earned\n• Interest is compounded yearly, helping your money grow steadily\n• Suitable for long-term financial goals\n\nKey features\n• Lock-in period: 15 years\n• Interest rate: Usually around 7–8% per year (set by the government)\n• Minimum yearly investment: ₹500\n• Maximum yearly investment: ₹1.5 lakh\n\nTax advantages\nPPF follows the EEE (Exempt-Exempt-Exempt) tax rule:\n• Contributions are tax-deductible under Section 80C\n• Interest earned is tax-free\n• Final maturity amount is tax-free\n\nBest use cases\nPPF is ideal for long-term goals such as:\n• Higher education\n• Home down payment\n• Retirement savings\n• Building a stable wealth foundation\n\nThings to know\n• You must contribute at least once every year to keep the account active\n• Partial withdrawals are allowed after a few years under certain conditions\n• Because of the long lock-in period, it works best for long-term planning\n\nTip: PPF is perfect for safe long-term savings while using SIPs and equity investments for higher growth."
   },
@@ -40,7 +40,7 @@ const topics = [
     emoji: "📈",
     title: "Stocks",
     desc: "Higher risk, higher reward. Only invest money you don't need for 5+ years.",
-    level: 4,
+    level: 5,
     details:
       "Stocks represent ownership in a company. When you buy a stock, you are purchasing a small share of that company. If the company grows and performs well, the value of your investment can increase over time.\n\nWhy invest in stocks\n• Potential for higher returns compared to savings accounts or fixed deposits\n• Opportunity to benefit from long-term economic growth\n• Some companies also pay dividends, which are regular payouts to shareholders\n\nImportant things to understand\nStocks can be volatile, meaning their prices can rise and fall frequently in the short term. Because of this, they are better suited for long-term investments (5+ years) rather than quick profits.\n\nBeginner strategy\n• Start with diversified index funds or ETFs\n• Consider well-established blue-chip companies\n• Invest regularly instead of trying to time the market\n• Focus on long-term growth rather than daily price movements\n\nThings to avoid\n• Investing without researching the company\n• Putting all your money into a single stock\n• Short-term trading without understanding market risks\n\nWhen should you start investing in stocks\nMake sure you already have:\n• An emergency fund\n• Basic health insurance\n• Some stable savings\nStocks should be the growth part of your portfolio, not your safety net.\n\nTip: Long-term investors often succeed by staying patient and letting compounding work over many years."
   },
@@ -48,7 +48,7 @@ const topics = [
     emoji: "🛡️",
     title: "Insurance",
     desc: "Health insurance first, always. Protects you from unexpected medical bills.",
-    level: 3,
+    level: 6,
     details:
       "Insurance is a financial protection tool that helps you handle unexpected expenses and risks without draining your savings. The most important type to start with is health insurance, which covers medical costs during illness or accidents.\n\nWhy insurance is important\n• Medical emergencies can be extremely expensive\n• Insurance protects your savings and emergency fund\n• It reduces financial stress during difficult situations\n\nTypes of insurance to consider\n• Health Insurance – Covers hospital bills, treatments, and medical emergencies\n• Term Life Insurance – Provides financial support to your family if something happens to you\n• Accident Insurance – Covers costs related to accidents or disability\n\nWhere to start\nFor beginners, the priority should be:\n1. Health Insurance – essential for everyone\n2. Term Life Insurance – important if you have family members who depend on your income\n\nImportant things to remember\n• Choose a plan with sufficient coverage rather than the cheapest option\n• Understand what is included and excluded in the policy\n• Review your insurance needs as your income and responsibilities grow\n\nSmart financial rule\nKeep insurance and investments separate. Insurance is meant for protection, while investments are meant for growing your wealth.\n\nTip: Even a basic health insurance plan can protect you from large medical expenses and prevent financial setbacks."
   },
