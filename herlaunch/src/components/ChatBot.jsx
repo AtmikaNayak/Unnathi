@@ -1,45 +1,33 @@
-import { useState } from "react"
+import { useState } from "react";
 
-// Load API key from .env
-const API_KEY = import.meta.env.VITE_OPENROUTER_API_KEY
+const API_KEY = import.meta.env.VITE_OPENROUTER_API_KEY;
 
-// Strong system prompt (important for better answers)
-const SYSTEM_PROMPT = `
-You are HerBot, an assistant for HerLaunch.
+const SYSTEM_PROMPT = `You are HerBot, a helpful assistant on HerLaunch — a platform for women to find scholarships, government schemes, internships, and learn about personal finance.
 
-You help women with:
-- Scholarships (India-focused)
-- Government schemes for women
-- Internships and career guidance
-- Personal finance (saving, SIP, budgeting)
-
-Rules:
-- Answer in simple English
-- Use bullet points when helpful
-- Be practical and clear
-- Give examples when possible
-`
+Answer briefly in simple English with bullet points when useful.`;
 
 export default function ChatBot() {
   const [open, setOpen] = useState(false)
   const [messages, setMessages] = useState([
     {
       role: "assistant",
-      text: "Hi! I'm HerBot 👋 Ask me about scholarships, schemes, or saving money."
+      text: "Hi! I'm HerBot 👋 Ask me about scholarships, government schemes, internships, or investing."
     }
-  ])
-  const [input, setInput] = useState("")
-  const [loading, setLoading] = useState(false)
+  ]);
+
+  const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const sendMessage = async () => {
     if (!input.trim()) return
 
-    const userMsg = { role: "user", text: input }
-    const updatedMessages = [...messages, userMsg]
+    const userMsg = { role: "user", text: input };
 
-    setMessages(updatedMessages)
-    setInput("")
-    setLoading(true)
+    const updatedMessages = [...messages, userMsg];
+
+    setMessages(updatedMessages);
+    setInput("");
+    setLoading(true);
 
     try {
       const apiMessages = updatedMessages.map(m => ({
@@ -54,42 +42,47 @@ export default function ChatBot() {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${API_KEY}`,
-            "HTTP-Referer": window.location.href,
-            "X-Title": "HerLaunch - HerBot"
+            "HTTP-Referer": window.location.origin,
+            "X-Title": "HerLaunch"
           },
           body: JSON.stringify({
-            model: "openrouter/auto",
+            model: "mistralai/mistral-7b-instruct",
             messages: [
               { role: "system", content: SYSTEM_PROMPT },
               ...apiMessages
             ]
           })
         }
-      )
+      );
 
       const data = await response.json()
 
       if (!response.ok) {
-        console.error("API Error:", data)
-        throw new Error(data.error?.message || "Something went wrong")
+        throw new Error(data.error?.message || "API error");
       }
 
-      const botReply =
+      const text =
         data.choices?.[0]?.message?.content ||
-        "Sorry, I couldn't understand that."
-
-      setMessages(prev => [...prev, { role: "assistant", text: botReply }])
-    } catch (error) {
-      console.error("Chatbot Error:", error)
+        "Sorry, I couldn't get a response.";
 
       setMessages(prev => [
         ...prev,
-        {
-          role: "assistant",
-          text:
-            "⚠️ Something went wrong. Try asking about scholarships, schemes, or savings."
-        }
-      ])
+        { role: "assistant", text }
+      ]);
+
+    } catch (error) {
+
+      console.error(error);
+
+      setMessages(prev => [
+        ...prev,
+        { role: "assistant", text: "⚠️ Sorry, something went wrong." }
+      ]);
+
+    }
+
+    if (!API_KEY) {
+      console.error("OpenRouter API key missing");
     }
 
     setLoading(false)
@@ -100,7 +93,7 @@ export default function ChatBot() {
       {/* Floating Button */}
       <button
         onClick={() => setOpen(!open)}
-        className="fixed bottom-6 right-6 bg-purple-600 text-white w-14 h-14 rounded-full text-2xl shadow-lg hover:bg-purple-700 transition"
+        className="fixed bottom-6 right-6 bg-purple-600 text-white w-14 h-14 rounded-full text-2xl shadow-lg"
       >
         {open ? "✕" : "💬"}
       </button>
@@ -119,9 +112,7 @@ export default function ChatBot() {
             {messages.map((m, i) => (
               <div
                 key={i}
-                className={`mb-2 ${
-                  m.role === "user" ? "text-right" : ""
-                }`}
+                className={`mb-2 ${m.role === "user" ? "text-right" : ""}`}
               >
                 <div
                   className={`inline-block px-3 py-2 rounded-lg text-sm ${
@@ -137,31 +128,10 @@ export default function ChatBot() {
 
             {loading && (
               <div className="text-gray-400 text-sm">
-                HerBot is thinking...
+                Thinking...
               </div>
             )}
-          </div>
 
-          {/* Quick Actions */}
-          <div className="px-3 pb-2 flex gap-2 flex-wrap">
-            <button
-              onClick={() => setInput("Show scholarships for me")}
-              className="text-xs bg-gray-200 px-2 py-1 rounded"
-            >
-              🎓 Scholarships
-            </button>
-            <button
-              onClick={() => setInput("Government schemes for women")}
-              className="text-xs bg-gray-200 px-2 py-1 rounded"
-            >
-              🏛 Schemes
-            </button>
-            <button
-              onClick={() => setInput("How to start saving money")}
-              className="text-xs bg-gray-200 px-2 py-1 rounded"
-            >
-              💰 Saving
-            </button>
           </div>
 
           {/* Input */}
@@ -176,7 +146,7 @@ export default function ChatBot() {
 
             <button
               onClick={sendMessage}
-              className="bg-purple-600 text-white px-3 rounded hover:bg-purple-700 transition"
+              className="bg-purple-600 text-white px-3 rounded"
             >
               →
             </button>
