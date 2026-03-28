@@ -1,35 +1,50 @@
-import { useState } from "react";
+import { useState } from "react"
 
-const API_KEY = import.meta.env.VITE_OPENROUTER_API_KEY;
+// Load API key from .env
+const API_KEY = import.meta.env.VITE_OPENROUTER_API_KEY
 
-const SYSTEM_PROMPT = `You are HerBot, a helpful assistant on HerLaunch — a platform for women to find scholarships, government schemes, internships, and learn about personal finance.
+// Clean system prompt
+const SYSTEM_PROMPT = `
+You are HerBot, an assistant for HerLaunch.
 
-Answer briefly in simple English with bullet points when useful.`;
+You help women with:
+- Scholarships (India-focused)
+- Government schemes for women
+- Internships and career guidance
+- Personal finance (saving, SIP, budgeting)
+
+Rules:
+- Answer in simple English
+- Use bullet points when helpful
+- Be practical and clear
+`
 
 export default function ChatBot() {
   const [open, setOpen] = useState(false)
   const [messages, setMessages] = useState([
     {
       role: "assistant",
-      text: "Hi! I'm HerBot 👋 Ask me about scholarships, government schemes, internships, or investing."
+      text: "Hi! I'm HerBot 👋 Ask me about scholarships, schemes, or saving money."
     }
-  ]);
-
-  const [input, setInput] = useState("");
-  const [loading, setLoading] = useState(false);
+  ])
+  const [input, setInput] = useState("")
+  const [loading, setLoading] = useState(false)
 
   const sendMessage = async () => {
     if (!input.trim()) return
 
-    const userMsg = { role: "user", text: input };
+    const userMsg = { role: "user", text: input }
+    const updatedMessages = [...messages, userMsg]
 
-    const updatedMessages = [...messages, userMsg];
-
-    setMessages(updatedMessages);
-    setInput("");
-    setLoading(true);
+    setMessages(updatedMessages)
+    setInput("")
+    setLoading(true)
 
     try {
+      if (!API_KEY) {
+        throw new Error("API key missing. Check your .env file.")
+      }
+
       const apiMessages = updatedMessages.map(m => ({
         role: m.role,
         content: m.text
@@ -46,43 +61,38 @@ export default function ChatBot() {
             "X-Title": "HerLaunch"
           },
           body: JSON.stringify({
-            model: "mistralai/mistral-7b-instruct",
+            model: "openrouter/auto",
             messages: [
               { role: "system", content: SYSTEM_PROMPT },
               ...apiMessages
             ]
           })
         }
-      );
+      )
 
       const data = await response.json()
 
       if (!response.ok) {
-        throw new Error(data.error?.message || "API error");
+        throw new Error(data.error?.message || "API error")
       }
 
-      const text =
+      const reply =
         data.choices?.[0]?.message?.content ||
-        "Sorry, I couldn't get a response.";
+        "Sorry, I couldn't understand that."
 
-      setMessages(prev => [
-        ...prev,
-        { role: "assistant", text }
-      ]);
+      setMessages(prev => [...prev, { role: "assistant", text: reply }])
 
     } catch (error) {
-
-      console.error(error);
+      console.error("Chatbot Error:", error)
 
       setMessages(prev => [
         ...prev,
-        { role: "assistant", text: "⚠️ Sorry, something went wrong." }
-      ]);
-
-    }
-
-    if (!API_KEY) {
-      console.error("OpenRouter API key missing");
+        {
+          role: "assistant",
+          text:
+            "⚠️ Something went wrong. Try asking about scholarships, schemes, or saving money."
+        }
+      ])
     }
 
     setLoading(false)
@@ -93,7 +103,7 @@ export default function ChatBot() {
       {/* Floating Button */}
       <button
         onClick={() => setOpen(!open)}
-        className="fixed bottom-6 right-6 bg-purple-600 text-white w-14 h-14 rounded-full text-2xl shadow-lg"
+        className="fixed bottom-6 right-6 bg-purple-600 text-white w-14 h-14 rounded-full text-2xl shadow-lg hover:bg-purple-700 transition"
       >
         {open ? "✕" : "💬"}
       </button>
@@ -112,7 +122,9 @@ export default function ChatBot() {
             {messages.map((m, i) => (
               <div
                 key={i}
-                className={`mb-2 ${m.role === "user" ? "text-right" : ""}`}
+                className={`mb-2 ${
+                  m.role === "user" ? "text-right" : ""
+                }`}
               >
                 <div
                   className={`inline-block px-3 py-2 rounded-lg text-sm ${
@@ -128,10 +140,9 @@ export default function ChatBot() {
 
             {loading && (
               <div className="text-gray-400 text-sm">
-                Thinking...
+                HerBot is thinking...
               </div>
             )}
-
           </div>
 
           {/* Input */}
@@ -146,11 +157,12 @@ export default function ChatBot() {
 
             <button
               onClick={sendMessage}
-              className="bg-purple-600 text-white px-3 rounded"
+              className="bg-purple-600 text-white px-3 rounded hover:bg-purple-700 transition"
             >
               →
             </button>
           </div>
+
         </div>
       )}
     </>
