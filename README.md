@@ -1,6 +1,8 @@
 # Unnathi
 
-Unnathi is a web platform designed to help women discover scholarships, internships, and government schemes while also improving financial literacy through interactive learning modules, an investment simulator, and an AI-powered assistant.
+Unnathi is a platform designed to help women discover scholarships, internships, and government schemes while building financial literacy through interactive learning resources, an investment simulator, and an AI-powered assistant.
+
+> Built as part of **Her-a-thon 2026**, a women's hackathon conducted by the **Finite Loop Womens Community (FLWC), NMAM Institute of Technology**.
 
 ## Live Demo
 
@@ -20,13 +22,15 @@ Website: https://unnathi-sage.vercel.app/
 
 ## Tech Stack
 
-* React
-* Vite
-* React Router
-* Tailwind CSS
-* Firebase Firestore
-* Recharts
-* OpenRouter API
+<p>
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white" />
+  <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black" />
+  <img src="https://img.shields.io/badge/Firestore-DD2C00?style=for-the-badge&logo=firebase&logoColor=white" />
+  <img src="https://img.shields.io/badge/Recharts-8884D8?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/OpenRouter-412991?style=for-the-badge" />
+</p>
 
 ## Project Structure
 
@@ -99,11 +103,11 @@ No automated tests are currently configured for this project.
 
 ### Opportunity Hub
 
-Browse scholarships, government schemes, and internship opportunities. Users can search, filter, and bookmark opportunities based on their requirements.
+Browse scholarships, government schemes, and internship opportunities. Users can filter opportunities based on state, course, and category.
 
 ### Money Lab
 
-Provides beginner-friendly financial education covering topics such as emergency funds, SIPs, fixed deposits, PPF, stocks, insurance, and budgeting principles.
+Provides beginner-friendly financial education covering budgeting, saving, investing, SIPs, emergency funds, and financial planning.
 
 ### Investment Simulator
 
@@ -160,4 +164,3 @@ AI-powered chatbot that assists users with:
 * React Router: https://reactrouter.com
 * Recharts: https://recharts.org
 * OpenRouter: https://openrouter.ai
-  
